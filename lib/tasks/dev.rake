@@ -11,25 +11,21 @@ task sample_data: :environment do
     User.destroy_all
   end
 
-  12.times do
+  usernames = Array.new {Faker::Name.first_name}
+
+  usernames << "alice"
+  usernames << "bob"
+
+  usernames.each do |username|
      
-    input_username = Faker::Internet.username
-    input_email = Faker::Internet.email
-    input_password = Faker::Internet.password
-
-    user = User.new(
-      :username => input_username, 
-      :email=> input_email, 
-      :password => input_password,
-      :private => [true, false].sample
-      ) 
-    user.save
-    
+    User.create(
+      email: "#{username}@example.com",
+      password: "password",
+      username: username.downcase,
+      private: [true, false].sample
+    )
   #  p u.errors.full_messages
-    
   end
- 
-
   users = User.all
   
   users.each do |first_user|
