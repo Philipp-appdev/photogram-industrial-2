@@ -10,9 +10,10 @@ task sample_data: :environment do
     Photo.destroy_all
     User.destroy_all
   end
-
-  usernames = Array.new {Faker::Name.first_name}
-
+  usernames = []
+  10.times do
+  usernames << Faker::Name.first_name
+  end
   usernames << "alice"
   usernames << "bob"
 

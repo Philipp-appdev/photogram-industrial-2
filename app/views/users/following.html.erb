@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1>
+      <%= @user.username %>
+    </h1>
+
+    <%= render "users/top_nav"%>
+  </div>
+</div>
+
+
+<%= current_user.leaders.count%>
+  <div class="list-group">
+    <% current_user.leaders.each do |leader|%>
+      <%= link_to "#{leader.username}", user_path(leader.username), class: "list-group-item list-group-item-action" %>
+    <% end %>
+  </div>
