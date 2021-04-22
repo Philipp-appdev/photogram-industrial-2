@@ -1,0 +1,17 @@
+<ul class="nav nav-pills nav-justified">
+      <li class="nav-item">
+        <%= link_to "Posts", user_path(@user.username), class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Liked photos", liked_photos_path(@user.username), class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Feed", feed_photos_path(@user.username), class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Followers", users_followers_path(@user.username), class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Following", users_following_path(@user.username), class: "nav-link" %>
+      </li>
+    </ul>
