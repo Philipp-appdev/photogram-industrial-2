@@ -25,7 +25,9 @@
 </div>
 
 
-<%= current_user.own_photos.count%>
-  <% current_user.own_photos.each do |photo|%>
-  <%= render "photos/photo", photo: photo %>
-  <% end %>
+<%= current_user.followers.count%>
+  <div class="list-group">
+    <% current_user.followers.each do |follower|%>
+      <%= link_to "#{follower.username}", user_path(follower.username), class: "list-group-item list-group-item-action" %>
+    <% end %>
+  </div>
